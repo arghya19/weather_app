@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weatherly - Your Weather Companion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./weather.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="app-title">Weatherly</h1>
+            <p class="app-subtitle">Your personal weather companion</p>
+        </div>
+
+        <!-- Search Section -->
+        <div class="search-section glass">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Enter city name..." id="cityInput">
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading glass" id="loading">
+            <div class="spinner"></div>
+            <p>Fetching weather data...</p>
+        </div>
+
+        <!-- Error State -->
+        <div class="error glass" id="error">
+            <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 15px;"></i>
+            <p id="errorMessage">Something went wrong. Please try again.</p>
+        </div>
+
+        <!-- Weather Content -->
+        <div class="weather-content" id="weatherContent">
+            <!-- Current Weather -->
+            <div class="current-weather glass">
+                <div class="weather-icon" id="currentIcon">
+                    <i class="fas fa-sun"></i>
+                </div>
+                <div class="temperature" id="currentTemp">--°C</div>
+                <div class="weather-condition" id="currentCondition">--</div>
+                <div class="location" id="currentLocation">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>--</span>
+                </div>
+            </div>
+
+            <!-- Weather Details -->
+            <div class="weather-details">
+                <div class="detail-card glass">
+                    <div class="detail-icon">
+                        <i class="fas fa-thermometer-half"></i>
+                    </div>
+                    <div class="detail-value" id="feelsLike">--°</div>
+                    <div class="detail-label">Feels like</div>
+                </div>
+                <div class="detail-card glass">
+                    <div class="detail-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <div class="detail-value" id="humidity">--%</div>
+                    <div class="detail-label">Humidity</div>
+                </div>
+                <div class="detail-card glass">
+                    <div class="detail-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <div class="detail-value" id="windSpeed">-- km/h</div>
+                    <div class="detail-label">Wind Speed</div>
+                </div>
+                <div class="detail-card glass">
+                    <div class="detail-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="detail-value" id="visibility">-- km</div>
+                    <div class="detail-label">Visibility</div>
+                </div>
+            </div>
+
+            <!-- 5-Day Forecast -->
+            <div class="forecast-section glass">
+                <h3 class="forecast-title">5-Day Forecast</h3>
+                <div class="forecast-container" id="forecastContainer">
+                    <!-- Forecast cards will be dynamically generated -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Refresh Button -->
+    <button class="refresh-btn" id="refreshBtn" title="Refresh current location weather">
+        <i class="fas fa-sync-alt"></i>
+    </button>
+    <script src="./weather.js"></script>
+</body>
+
+</html>
